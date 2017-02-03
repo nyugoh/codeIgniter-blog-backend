@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Admin - Inspire me</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style type="text/css">
+			body{
+				/*background-color: #f5f8fa; */
+			}
+			.main-nav{
+				border-radius:0;
+				margin-bottom: 0;
+				background-color: #3097d1;
+			}
+			.main-nav .nav li a,.main-nav .nav li a:link{
+				color:rgba(255, 255, 255, 0.5);
+			}
+			.main-nav .nav li a:hover{
+				color:white;
+			}
+			.header h3:hover{
+				color:rgba(255,215,0,0.5);
+			}
+			.header h2{
+				font-family: 'Nunito';
+			}
+			.main-content article{
+				margin-top:25px;
+
+			}
+			.main-content article p{
+				line-height: 1.53;
+				font-family: 'Nunito';
+				font-size: 20px;
+			}
+			footer{
+				background-color: #f8f8f8;
+				border-top:1px solid #ddd;
+				margin-bottom: none;
+				padding:5px 0;
+			}
+			.footer-links a{
+				padding-right: 10px;
+				border-right:1px solid #ddd;
+			}
+			.footer-links a:last-child{
+				border-right: none;
+				padding-right:none;
+			}
+			footer a{
+				color:#333;
+			}
+
+			.share a span{
+				margin:10px 20px;
+				font-size: 22px;
+			}
+			.share a{
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-default main-nav" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="<?php echo base_url() ?>" style="color:#FFD700;margin-left: 50px;"><img src="<?php asset('images/inspire.png') ?> ">Inspire Me</a>
+				</div>
+		
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						
+						<li><a href="<?php echo base_url().'admin/edit' ?>">
+						<span class="glyphicon glyphicon-home" style="color:orange; font-size:20px;"></span>
+
+						</a></li>
+						<li> <a class="text-center" style="font-size: 25px;color:white;">Admin CPanel</a></li>
+					</ul>
+					
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown" >
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Articles
+						 <b class="caret"></b></a>
+						<ul class="dropdown-menu" style="background-color:#3097d1">
+							<li>
+								<a href="<?php echo base_url().'admin/add' ?>" class="">
+								New Article<span style="font-size: 16px;color:lime;" class="pull-right text-info glyphicon glyphicon-pencil"></span>
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url().'admin/edit' ?>" class="">
+								Edit article<span style="font-size: 16px;color:lime;" class="pull-right glyphicon glyphicon-edit text-primary"></span>
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url().'admin/monitor' ?>" class="">
+								Monitor<span style="font-size: 16px; color:lime;" class="pull-right glyphicon glyphicon-eye-open"></span>
+								</a>
+							</li>
+							
+						</ul>
+					</li>
+					<li class="dropdown" >
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Quotes
+						 <b class="caret"></b></a>
+						<ul class="dropdown-menu" style="background-color: #3097d1">
+							<li><a href="<?php echo base_url().'admin/login' ?>">Login</a></li>
+							<li><a href="<?php echo base_url().'admin/logout' ?>">Logout</a></li>
+							<li><a href="<?php echo base_url().'admin/signup' ?>">Become admin</a></li>
+						</ul>
+					</li>
+					<li><a href="<?php echo base_url().'admin/quotes' ?>">Quotes</a></li>
+					<li>
+						<a href="#">
+							<span class="glyphicon glyphicon-user"></span>
+						<?php echo $this->session->userdata('username');?>
+						</a>
+					</li>
+					<li class="dropdown" >
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-cog"></span>
+						 <b class="caret"></b></a>
+						<ul class="dropdown-menu" style="background-color: #3097d1">
+							<li><a href="<?php echo base_url().'admin/login' ?>">Login</a></li>
+							<li><a href="<?php echo base_url().'admin/logout' ?>">Logout</a></li>
+							<li><a href="<?php echo base_url().'admin/signup' ?>">Become admin</a></li>
+						</ul>
+					</li>
+				</ul>
+					
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</nav>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="hidden-sm hidden-xs col-md-3 col-lg-3" style="padding-top: 5px;border-right: 3px solid #ddd;background-color:#eee;">
+
+		<section class="text-center" style="">
+			<img src="<?php echo base_url().'assets/images/admins/'.$this->session->userdata('photo');?>" style="width:150px; height: 150px; border:3px solid #fff;margin:0 auto;" class="img-responsive img-circle">
+		</section>
+
+			<div class="list-group">
+				<h3 class="list-group-item active">
+					<span class="glyphicon glyphicon-pushpin"></span>Articles menu
+				</h3>
+				<a href="<?php echo base_url().'admin/add' ?>" class="list-group-item">
+					New Article<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-new-window"></span>
+				</a>
+				<a href="<?php echo base_url().'admin/edit' ?>" class="list-group-item">
+					Edit Article<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-edit"></span>
+				</a>
+				<a href="<?php echo base_url().'admin/monitor' ?>" class="list-group-item">
+					Delete Article<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-trash"></span>
+				</a>
+				<a href="<?php echo base_url().'admin/pause' ?>" class="list-group-item">
+					Pause Article<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-pause"></span>
+				</a>
+			</div>
+			<div class="list-group">
+				<h3 class="list-group-item active">
+					<span class="glyphicon glyphicon-comment"></span>
+					  Quotes menu
+				</h3>
+				<a href="<?php echo base_url().'admin/quote' ?>" class="list-group-item">
+					New Quote<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-new-window"></span>
+				</a>
+				<a href="<?php echo base_url().'admin/quotes' ?>" class="list-group-item">
+					Edit Quote<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-edit"></span>
+				</a>
+				<a href="delete-quotes.php" class="list-group-item">
+					Delete Quote<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-trash"></span>
+				</a>
+				<a href="pause-quotes.php" class="list-group-item">
+					Pause Quote<span style="font-size: 16px; color:orange;" class="pull-right glyphicon glyphicon-pause"></span>
+				</a>
+			</div>
+
+			<div class="list-group">
+				<h3 class="list-group-item active">
+					<span class="glyphicon glyphicon-cog"></span>
+					  Site Analytics 
+				</h3>
+				<a href="" class="list-group-item">
+					Total Visitors
+					<span style="color:orange; font-size:16px;" class="pull-right glyphicon glyphicon-signal"></span>
+				</a>
+				<a href="" class="list-group-item">
+					Page Shares
+					<span style="color:orange; font-size:16px;" class="pull-right glyphicon glyphicon-share"></span>
+				</a>
+				<a href="" class="list-group-item">
+					Statistics
+					<span style="color:orange; font-size:16px;" class="pull-right glyphicon glyphicon-stats"></span>
+				</a>
+				<a href="" class="list-group-item">
+					Contributors
+					<span style="color:orange; font-size:16px;" class="pull-right glyphicon glyphicon-user"></span>
+				</a>
+				<a href="" class="list-group-item">
+					Super-Admin
+					<span style="color:orange; font-size:16px;" class="pull-right glyphicon glyphicon-user"></span>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-9 col-lg-9">
+
