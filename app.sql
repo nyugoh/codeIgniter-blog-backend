@@ -36,11 +36,3 @@ create table if not exists authors(
 	email varchar(100) not null,
 	articles int default 0
 )Engine=InnoDB, Charset='utf8';
-
-
---insert one record
---insert into authors values('Admin','Nyugoh','Super-Admin', 'user.png',5,'Web developer',2,10 ,'123456789');
---insert into authors values('Joe','Nyugoh','Admin', 'user.png',5,'Web developer',2,10 ,'987654321');
-
-
-
